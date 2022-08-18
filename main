@@ -7,13 +7,8 @@ import os
 import pyautogui
 import requests
 
-link = 'https://raw.githubusercontent.com/Jasperaj/txtfile/main/main'
-
-print(link)
 
 def cap():
-      API_KEY = 'o.9wt8uTDYahAh9FR06gAOfr8nXffnF4ys'
-      pb = Pushbullet(API_KEY)
 
 
 
