@@ -43,7 +43,7 @@ def cap():
       # If you have multiple camera connected with 
       # current device, assign a value in cam_port 
       # variable according to that
-#      '''      
+      '''      
       try:
             
             cam_port = 0
@@ -82,7 +82,7 @@ def cap():
             text = "There was error in processing the file. Please try again !!!"
             tele_text("Video Capture Issse!!!",text)
 
-#      '''          
+      '''          
       
       try:
           im = pyautogui.screenshot()
